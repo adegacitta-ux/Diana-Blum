@@ -8,6 +8,7 @@
 <link rel="canonical" href="https://adegacitta-ux.github.io/Diana-Blum/">
 <meta name="theme-color" content="#17120e">
 
+<!-- Open Graph & Social -->
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:url" content="https://adegacitta-ux.github.io/Diana-Blum/">
@@ -19,6 +20,31 @@
 <meta name="twitter:title" content="Diana Blum — Cantora de MPB, Pop e Jazz para Eventos e Wine Bars">
 <meta name="twitter:description" content="Diana Blum é cantora de MPB, Pop e Jazz para restaurantes, wine bars, eventos corporativos e apresentações intimistas.">
 <meta name="twitter:image" content="https://adegacitta-ux.github.io/Diana-Blum/hero.jpg">
+
+<!-- Schema.org Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Diana Blum",
+  "description": "Cantora de MPB, Pop, Jazz e Rock Acústico para eventos e apresentações intimistas",
+  "url": "https://adegacitta-ux.github.io/Diana-Blum/",
+  "image": "https://adegacitta-ux.github.io/Diana-Blum/hero.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Limeira",
+    "addressRegion": "SP",
+    "addressCountry": "BR"
+  },
+  "telephone": "+5519998352326",
+  "email": "contato.dianablum@gmail.com",
+  "sameAs": [
+    "https://www.instagram.com/a.diana.blum/",
+    "https://www.youtube.com/@adianablum",
+    "https://www.facebook.com/dianaribeiroblum"
+  ]
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,6 +65,15 @@
     --max:680px;
     --max-wide:1000px;
   }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --parchment: #2a2420;
+      --parchment-line: #3a3430;
+      --ink-text: #e8dcc8;
+    }
+  }
+
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
@@ -48,6 +83,23 @@
     color:var(--cream);
     -webkit-font-smoothing:antialiased;
   }
+
+  /* Skip to main content link */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--amber-bright);
+    color: var(--ink);
+    padding: 8px;
+    text-decoration: none;
+    z-index: 100;
+    font-weight: 600;
+  }
+  .skip-link:focus {
+    top: 0;
+  }
+
   h1,h2,h3{
     font-family:'Fraunces', serif;
     font-weight:440;
@@ -116,7 +168,7 @@
   }
   .hero-eyebrow{
     font-size:14px;
-    color:rgba(241,230,211,0.9);
+    color:#f1e6d3;
     margin-bottom:18px;
     text-shadow:0 1px 4px rgba(0,0,0,0.8);
     opacity:0;
@@ -135,7 +187,7 @@
   .hero-desc{
     margin-top:20px;
     font-size:clamp(16px,4vw,19px);
-    color:rgba(241,230,211,0.95);
+    color:#f1e6d3;
     max-width:38ch;
     line-height:1.55;
     text-shadow:0 1px 4px rgba(0,0,0,0.8);
@@ -158,7 +210,7 @@
   .hero-location{
     margin-top:28px;
     font-size:14px;
-    color:rgba(241,230,211,0.7);
+    color:#c9b5a0;
     text-shadow:0 1px 4px rgba(0,0,0,0.8);
     opacity:0;
     animation:heroFadeUp .7s ease forwards;
@@ -201,7 +253,7 @@
     margin-bottom:40px;
   }
   .band-parchment .section-lead{color:#6b5d4b;}
-  section:not(.band-parchment) .section-lead{color:rgba(241,230,211,0.75);}
+  section:not(.band-parchment) .section-lead{color:#c9b5a0;}
 
   /* ---------- SOBRE ---------- */
   .bio p{
@@ -271,6 +323,9 @@
     object-fit:cover;
     display:block;
   }
+  @media (max-width:768px){
+    .gallery{grid-template-columns:repeat(2,1fr);}
+  }
   @media (max-width:560px){
     .gallery{grid-template-columns:repeat(2,1fr);}
   }
@@ -297,7 +352,7 @@
     line-height:1.6;
     color:#a99a82;
   }
-  @media (max-width:760px){
+  @media (max-width:900px){
     .formats-grid{grid-template-columns:repeat(2,1fr);}
   }
   @media (max-width:520px){
@@ -332,6 +387,9 @@
   .rep-card li{
     font-size:14.5px;
     color:var(--ink-text);
+  }
+  @media (max-width:1100px){
+    .rep-grid{grid-template-columns:repeat(3,1fr);}
   }
   @media (max-width:860px){
     .rep-grid{grid-template-columns:repeat(2,1fr);}
@@ -478,6 +536,53 @@
   .channel-link:hover{padding-left:8px; color:var(--amber-bright);}
   .channel-link .arrow{color:#a99a82; font-size:14px;}
 
+  /* ---------- CONTACT FORM ---------- */
+  .contact-form {
+    margin-top: 32px;
+    padding: 28px;
+    background: rgba(241,230,211,0.1);
+    border-radius: 14px;
+    border: 1px solid rgba(241,230,211,0.2);
+  }
+  .form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .form-group label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--cream);
+  }
+  .form-group input,
+  .form-group textarea {
+    padding: 12px 14px;
+    border: 1px solid rgba(241,230,211,0.3);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 15px;
+    background: rgba(9,6,4,0.5);
+    color: var(--cream);
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: rgba(241,230,211,0.5);
+  }
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--amber-bright);
+    box-shadow: 0 0 0 3px rgba(227,172,96,0.1);
+  }
+  .form-submit {
+    width: 100%;
+  }
+
   /* ---------- CONTATO COMERCIAL ---------- */
   .contact-eyebrow{
     font-size:13px;
@@ -531,14 +636,26 @@
     font-size:15px;
     font-weight:500;
     text-decoration:none;
+    border: none;
+    cursor: pointer;
+    transition: all .2s ease;
   }
   .btn-primary{
     background:var(--cream);
     color:var(--wine-deep);
   }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  }
   .btn-outline{
     border:1px solid rgba(241,230,211,0.45);
     color:var(--cream);
+    background: transparent;
+  }
+  .btn-outline:hover {
+    border-color: var(--amber-bright);
+    color: var(--amber-bright);
   }
   .contact-email{
     margin-top:28px;
@@ -568,6 +685,7 @@
     box-shadow:0 8px 22px rgba(0,0,0,0.4);
     z-index:999;
     transition:transform .2s ease;
+    text-decoration: none;
   }
   .whatsapp-float:hover{transform:scale(1.08);}
   .whatsapp-float svg{width:29px;height:29px;fill:#fff;}
@@ -575,24 +693,51 @@
     .whatsapp-float{width:52px;height:52px;bottom:calc(16px + env(safe-area-inset-bottom));right:16px;}
     .whatsapp-float svg{width:26px;height:26px;}
   }
+
+  /* Form success message */
+  .form-message {
+    display: none;
+    margin-bottom: 20px;
+    padding: 14px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+  .form-message.success {
+    display: block;
+    background: rgba(37, 211, 102, 0.2);
+    color: #25d366;
+    border: 1px solid #25d366;
+  }
+  .form-message.error {
+    display: block;
+    background: rgba(210, 50, 60, 0.2);
+    color: #d2323c;
+    border: 1px solid #d2323c;
+  }
 </style>
 </head>
 <body>
 
+<!-- Skip to main content link -->
+<a href="#main-content" class="skip-link">Pular para conteúdo principal</a>
+
 <!-- ===================== HERO ===================== -->
 <header class="hero">
-  <img class="hero-photo" src="hero.jpg" alt="Diana Blum cantando ao microfone durante uma apresentação">
+  <img class="hero-photo" src="hero.jpg" alt="Diana Blum cantando ao microfone durante uma apresentação" loading="lazy">
   <div class="wrap hero-content">
     <p class="hero-eyebrow">Música ao vivo para eventos e experiências intimistas</p>
     <h1>Diana<br>Blum</h1>
     <p class="hero-desc">MPB, Pop, Jazz e Rock Acústico em versões elegantes para restaurantes, wine bars, eventos corporativos e apresentações especiais.</p>
     <div class="hero-cta-group">
-      <a class="btn btn-primary" href="https://wa.me/5519998352326?text=Ol%C3%A1%20Ronan%2C%20gostaria%20de%20conversar%20sobre%20uma%20apresenta%C3%A7%C3%A3o%20da%20Diana%20Blum." target="_blank" rel="noopener">Solicitar apresentação</a>
+      <a class="btn btn-primary" id="whatsapp-hero" href="#" aria-label="Conversar via WhatsApp (abre em nova aba)">Conversar no WhatsApp</a>
       <a class="btn btn-outline" href="#videos">Assistir vídeos</a>
     </div>
     <p class="hero-location">Baseada em <span>Limeira/SP</span> • Disponível para São Paulo e região</p>
   </div>
 </header>
+
+<!-- ===================== MAIN CONTENT ===================== -->
+<main id="main-content">
 
 <!-- ===================== ASSISTA DIANA BLUM ===================== -->
 <section id="videos">
@@ -601,14 +746,14 @@
     <p class="section-lead">Ouça a voz e sinta a atmosfera de uma apresentação intimista antes de fechar sua data.</p>
     <div class="video-grid">
       <div class="video-frame">
-        <iframe src="https://www.youtube.com/embed/NdUli-Sp3sk" title="Diana Blum — vídeo ao vivo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/NdUli-Sp3sk" title="Diana Blum — vídeo ao vivo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div class="video-frame">
-        <iframe src="https://www.youtube.com/embed/uZsaJQyraRw" title="Diana Blum — vídeo ao vivo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/uZsaJQyraRw" title="Diana Blum — vídeo ao vivo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
     <div class="videos-cta">
-      <a class="btn btn-outline" href="https://www.youtube.com/@adianablum" target="_blank" rel="noopener">Ver canal completo</a>
+      <a class="btn btn-outline" href="https://www.youtube.com/@adianablum" target="_blank" rel="noopener" aria-label="Ver canal completo no YouTube (abre em nova aba)">Ver canal completo</a>
     </div>
   </div>
 </section>
@@ -618,8 +763,8 @@
   <div class="wrap">
     <h2 class="section-title">Sobre</h2>
     <div class="bio">
-      <p>Diana Blum apresenta um repertório de MPB, Pop, Jazz e clássicos em versões intimistas, criando experiências musicais elegantes para wine bars, restaurantes, eventos corporativos e ambientes sofisticados.</p>
-      <p>Com presença marcante e sensibilidade na interpretação, Diana transforma cada apresentação em uma experiência sonora sofisticada — a trilha perfeita para ambientes que valorizam boa companhia e conversa.</p>
+      <p>Diana Blum apresenta um repertório de MPB, Pop, Jazz e clássicos em versões intimistas, criando experiências musicais elegantes para wine bars, restaurantes, eventos corporativos e apresentações especiais.</p>
+      <p>Com presença marcante e sensibilidade na interpretação, Diana transforma cada apresentação em uma experiência sonora sofisticada — a trilha perfeita para ambientes que valorizam qualidade e autenticidade.</p>
     </div>
     <div class="tags">
       <span class="tag">MPB</span>
@@ -670,9 +815,9 @@
   <div class="wrap">
     <h2 class="section-title" style="color:var(--cream);">Em cena</h2>
     <div class="gallery">
-      <div class="photo-slot"><img src="photo-1.jpg" alt="Diana Blum se apresentando ao vivo, sorrindo com o microfone"></div>
-      <div class="photo-slot"><img src="photo-2.jpg" alt="Diana Blum cantando em apresentação ao vivo"></div>
-      <div class="photo-slot"><img src="photo-3.jpg" alt="Diana Blum no palco, sorrindo para o público"></div>
+      <div class="photo-slot"><img src="photo-1.jpg" alt="Diana Blum se apresentando ao vivo, sorrindo com o microfone" loading="lazy"></div>
+      <div class="photo-slot"><img src="photo-2.jpg" alt="Diana Blum cantando em apresentação ao vivo" loading="lazy"></div>
+      <div class="photo-slot"><img src="photo-3.jpg" alt="Diana Blum no palco, sorrindo para o público" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -725,44 +870,44 @@
     <h2 class="section-title" style="color:var(--cream);">Instagram</h2>
     <p class="section-lead">Acompanhe os bastidores, apresentações e novidades da Diana Blum.</p>
 
-    <!-- Feed: substitua href pelo link do post real e src pela imagem do post quando disponível -->
-    <div class="ig-feed">
-      <a class="ig-post" href="https://www.instagram.com/p/DcJ8_iQvlxp/" target="_blank" rel="noopener" title="Apresentação ao vivo — Diana Blum">
+    <!-- Feed: estrutura pronta para integração com Instagram Graph API -->
+    <div class="ig-feed" id="instagram-feed">
+      <a class="ig-post" href="https://www.instagram.com/p/DcJ8_iQvlxp/" target="_blank" rel="noopener" title="Apresentação ao vivo — Diana Blum" aria-label="Apresentação ao vivo no Instagram (abre em nova aba)">
         <img src="photo-1.jpg" alt="Diana Blum se apresentando ao vivo, sorrindo com o microfone" loading="lazy">
         <span class="ig-post-overlay"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1.1" fill="#fff" stroke="none"/></svg></span>
       </a>
-      <a class="ig-post" href="https://www.instagram.com/a.diana.blum/" target="_blank" rel="noopener" title="Nos bastidores — Diana Blum">
+      <a class="ig-post" href="https://www.instagram.com/a.diana.blum/" target="_blank" rel="noopener" title="Nos bastidores — Diana Blum" aria-label="Conteúdo nos bastidores no Instagram (abre em nova aba)">
         <img src="photo-2.jpg" alt="Diana Blum cantando em apresentação ao vivo" loading="lazy">
         <span class="ig-post-overlay"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1.1" fill="#fff" stroke="none"/></svg></span>
       </a>
-      <a class="ig-post" href="https://www.instagram.com/a.diana.blum/" target="_blank" rel="noopener" title="No palco — Diana Blum">
+      <a class="ig-post" href="https://www.instagram.com/a.diana.blum/" target="_blank" rel="noopener" title="No palco — Diana Blum" aria-label="Apresentação no palco no Instagram (abre em nova aba)">
         <img src="photo-3.jpg" alt="Diana Blum no palco, sorrindo para o público" loading="lazy">
         <span class="ig-post-overlay"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1.1" fill="#fff" stroke="none"/></svg></span>
       </a>
     </div>
 
-    <!-- Reels: substitua href pelo link do reel real e src pela thumbnail quando disponível -->
+    <!-- Reels: estrutura pronta para integração com Instagram Graph API -->
     <h3 class="ig-subhead">Reels em destaque</h3>
-    <div class="ig-reels">
-      <a class="ig-reel" href="https://www.instagram.com/a.diana.blum/" target="_blank" rel="noopener" title="Reel — Diana Blum ao vivo">
+    <div class="ig-reels" id="instagram-reels">
+      <a class="ig-reel" href="https://www.instagram.com/a.diana.blum/" target="_blank" rel="noopener" title="Reel — Diana Blum ao vivo" aria-label="Vídeo ao vivo no Instagram (abre em nova aba)">
         <img src="hero.jpg" alt="Diana Blum cantando ao microfone" loading="lazy">
         <span class="ig-reel-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
       </a>
-      <a class="ig-reel" href="https://www.instagram.com/a.diana.blum/" target="_blank" rel="noopener" title="Reel — Diana Blum performance">
+      <a class="ig-reel" href="https://www.instagram.com/a.diana.blum/" target="_blank" rel="noopener" title="Reel — Diana Blum performance" aria-label="Vídeo de performance no Instagram (abre em nova aba)">
         <img src="photo-2.jpg" alt="Diana Blum se apresentando" loading="lazy">
         <span class="ig-reel-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
       </a>
     </div>
 
     <div class="ig-follow-cta">
-      <a class="btn btn-outline" href="https://www.instagram.com/a.diana.blum/" target="_blank" rel="noopener">Seguir no Instagram</a>
+      <a class="btn btn-outline" href="https://www.instagram.com/a.diana.blum/" target="_blank" rel="noopener" aria-label="Seguir no Instagram (abre em nova aba)">Seguir no Instagram</a>
     </div>
 
     <div class="ig-conversion">
       <p class="ig-conversion-title">Gostou do trabalho da Diana?</p>
       <div class="ig-conversion-actions">
-        <a class="btn btn-primary" href="https://wa.me/5519998352326?text=Ol%C3%A1%20Ronan%2C%20gostaria%20de%20conversar%20sobre%20uma%20apresenta%C3%A7%C3%A3o%20da%20Diana%20Blum." target="_blank" rel="noopener">Solicitar apresentação</a>
-        <a class="btn btn-outline" href="https://www.instagram.com/a.diana.blum/" target="_blank" rel="noopener">Seguir no Instagram</a>
+        <a class="btn btn-primary" id="whatsapp-instagram" href="#" aria-label="Conversar via WhatsApp (abre em nova aba)">Conversar no WhatsApp</a>
+        <a class="btn btn-outline" href="https://www.instagram.com/a.diana.blum/" target="_blank" rel="noopener" aria-label="Seguir no Instagram (abre em nova aba)">Seguir no Instagram</a>
       </div>
     </div>
   </div>
@@ -773,13 +918,13 @@
   <div class="wrap">
     <h2 class="section-title" style="color:var(--cream);">Ouça e acompanhe</h2>
     <div class="channels">
-      <a class="channel-link" href="https://www.youtube.com/@adianablum" target="_blank" rel="noopener">
+      <a class="channel-link" href="https://www.youtube.com/@adianablum" target="_blank" rel="noopener" aria-label="YouTube - abre em nova aba">
         <span>YouTube</span><span class="arrow">@adianablum</span>
       </a>
-      <a class="channel-link" href="https://www.tiktok.com/@a.diana.blum" target="_blank" rel="noopener">
+      <a class="channel-link" href="https://www.tiktok.com/@a.diana.blum" target="_blank" rel="noopener" aria-label="TikTok - abre em nova aba">
         <span>TikTok</span><span class="arrow">@a.diana.blum</span>
       </a>
-      <a class="channel-link" href="https://www.facebook.com/dianaribeiroblum" target="_blank" rel="noopener">
+      <a class="channel-link" href="https://www.facebook.com/dianaribeiroblum" target="_blank" rel="noopener" aria-label="Facebook - abre em nova aba">
         <span>Facebook</span><span class="arrow">Diana Ribeiro Blum</span>
       </a>
     </div>
@@ -797,23 +942,130 @@
       <p class="manager-phone">(19) 99835-2326</p>
     </div>
     <div class="contact-actions">
-      <a class="btn btn-primary" href="https://wa.me/5519998352326?text=Ol%C3%A1%20Ronan%2C%20gostaria%20de%20conversar%20sobre%20uma%20apresenta%C3%A7%C3%A3o%20da%20Diana%20Blum." target="_blank" rel="noopener">Falar com Ronan no WhatsApp</a>
-      <a class="btn btn-outline" href="mailto:contato.dianablum@gmail.com">Enviar e-mail</a>
+      <a class="btn btn-primary" id="whatsapp-contact" href="#" aria-label="Conversar via WhatsApp (abre em nova aba)">Conversar no WhatsApp</a>
+      <a class="btn btn-outline" href="mailto:contato.dianablum@gmail.com" aria-label="Enviar e-mail">Enviar e-mail</a>
     </div>
     <p class="contact-email">contato.dianablum@gmail.com</p>
+
+    <!-- Contact form alternative -->
+    <div class="contact-form">
+      <h3 style="color:var(--cream); font-size:18px; margin-bottom:18px;">Ou envie uma mensagem</h3>
+      <div class="form-message" id="form-message"></div>
+      <form id="contact-form" method="POST" action="https://formspree.io/f/xzzynqpj">
+        <div class="form-group">
+          <label for="name">Seu nome *</label>
+          <input type="text" id="name" name="name" required placeholder="João Silva">
+        </div>
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required placeholder="seu@email.com">
+        </div>
+        <div class="form-group">
+          <label for="phone">Telefone (opcional)</label>
+          <input type="tel" id="phone" name="phone" placeholder="(11) 99999-9999">
+        </div>
+        <div class="form-group">
+          <label for="event-type">Tipo de evento *</label>
+          <input type="text" id="event-type" name="event_type" required placeholder="Ex: Casamento, Coquetel, Wine bar">
+        </div>
+        <div class="form-group">
+          <label for="message">Mensagem *</label>
+          <textarea id="message" name="message" required placeholder="Conte-nos mais sobre sua apresentação..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary form-submit">Enviar mensagem</button>
+      </form>
+    </div>
   </div>
 </section>
+
+</main>
 
 <footer>
   Diana Blum · Limeira/SP
 </footer>
 
 <!-- ===================== BOTÃO FLUTUANTE WHATSAPP ===================== -->
-<a class="whatsapp-float" href="https://wa.me/5519998352326?text=Ol%C3%A1%20Ronan%2C%20gostaria%20de%20conversar%20sobre%20uma%20apresenta%C3%A7%C3%A3o%20da%20Diana%20Blum." target="_blank" rel="noopener" aria-label="Conversar no WhatsApp sobre uma apresentação">
+<a class="whatsapp-float" id="whatsapp-float" href="#" rel="noopener" aria-label="Conversar via WhatsApp (abre em nova aba)">
   <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M16.004 3C9.376 3 4 8.373 4 15c0 2.428.713 4.687 1.94 6.59L4 29l7.61-1.916A11.94 11.94 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3zm0 21.7c-1.98 0-3.836-.55-5.42-1.51l-.387-.23-4.51 1.137 1.164-4.39-.253-.404A9.65 9.65 0 0 1 5.3 15c0-5.906 4.798-10.7 10.704-10.7 5.906 0 10.7 4.794 10.7 10.7 0 5.906-4.794 10.7-10.7 10.7zm5.86-8.02c-.32-.16-1.885-.93-2.177-1.036-.293-.106-.507-.16-.72.16-.213.32-.826 1.036-1.013 1.25-.187.213-.373.24-.693.08-1.874-.936-3.1-1.673-4.33-3.793-.327-.564.327-.524.936-1.744.107-.213.053-.4-.053-.56-.107-.16-.72-1.734-.986-2.4-.267-.667-.534-.507-.72-.507-.187 0-.454-.027-.72-.027-.267 0-.694.107-.934.373-.24.267-.933.916-.933 2.24 0 1.323.96 2.6 1.093 2.78.133.187 1.813 2.933 4.507 3.986 2.147.854 2.667.84 3.24.747.573-.094 1.885-.774 2.157-1.52.267-.747.267-1.386.187-1.52-.08-.134-.293-.214-.613-.374z"/>
+    <path d="M16.004 3C9.376 3 4 8.373 4 15c0 2.428.713 4.687 1.94 6.59L4 29l7.61-1.916A11.94 11.94 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3zm0 21.7c-1.98 0-3.836-.55-5.42-1.51l-.39-.22-4.03 1.016 1.03-3.78-.24-.38c-.99-1.58-1.52-3.42-1.52-5.35 0-5.81 4.73-10.54 10.55-10.54 5.82 0 10.55 4.73 10.55 10.54 0 5.82-4.73 10.55-10.55 10.55z"/>
   </svg>
 </a>
+
+<script>
+  // WhatsApp configuration - centralized to avoid DRY violations
+  const WHATSAPP_CONFIG = {
+    phone: '5519998352326',
+    defaultMessage: 'Olá Ronan, gostaria de conversar sobre uma apresentação da Diana Blum.'
+  };
+
+  function generateWhatsAppUrl(customMessage = null) {
+    const message = customMessage || WHATSAPP_CONFIG.defaultMessage;
+    return `https://wa.me/${WHATSAPP_CONFIG.phone}?text=${encodeURIComponent(message)}`;
+  }
+
+  // Initialize all WhatsApp links
+  document.addEventListener('DOMContentLoaded', function() {
+    const whatsappLinks = [
+      'whatsapp-hero',
+      'whatsapp-instagram',
+      'whatsapp-contact',
+      'whatsapp-float'
+    ];
+
+    whatsappLinks.forEach(id => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.href = generateWhatsAppUrl();
+        element.target = '_blank';
+      }
+    });
+
+    // Contact form handling
+    const contactForm = document.getElementById('contact-form');
+    const formMessage = document.getElementById('form-message');
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        // Formspree will handle the submission
+        // This event listener can be extended for additional client-side logic
+        formMessage.textContent = 'Enviando mensagem...';
+        formMessage.className = 'form-message';
+      });
+
+      // Listen for form submission success
+      contactForm.addEventListener('formspree.submit', function() {
+        formMessage.textContent = '✓ Mensagem enviada com sucesso! Entraremos em contato em breve.';
+        formMessage.className = 'form-message success';
+        contactForm.reset();
+        
+        setTimeout(() => {
+          formMessage.style.display = 'none';
+        }, 5000);
+      });
+
+      // Listen for form submission error
+      contactForm.addEventListener('formspree.error', function() {
+        formMessage.textContent = '✗ Erro ao enviar mensagem. Tente novamente ou use o WhatsApp.';
+        formMessage.className = 'form-message error';
+      });
+    }
+  });
+
+  // Performance: Intersection Observer for lazy analytics if needed
+  if ('IntersectionObserver' in window) {
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Track section views if analytics added later
+          // console.log('Section viewed:', entry.target.id);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    sections.forEach(section => observer.observe(section));
+  }
+</script>
 
 </body>
 </html>
