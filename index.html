@@ -3,8 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diana Blum — Cantora e Compositora</title>
-<meta name="description" content="Diana Blum — cantora e compositora de Limeira/SP. Covers e músicas autorais entre Pop, Rock e MPB. Contato para shows.">
+<title>Diana Blum — Cantora de MPB, Pop e Jazz para Eventos e Wine Bars</title>
+<meta name="description" content="Diana Blum é cantora de MPB, Pop e Jazz para restaurantes, wine bars, eventos corporativos e apresentações intimistas.">
+<link rel="canonical" href="https://adegacitta-ux.github.io/Diana-Blum/">
+<meta name="theme-color" content="#17120e">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://adegacitta-ux.github.io/Diana-Blum/">
+<meta property="og:site_name" content="Diana Blum">
+<meta property="og:title" content="Diana Blum — Cantora de MPB, Pop e Jazz para Eventos e Wine Bars">
+<meta property="og:description" content="Diana Blum é cantora de MPB, Pop e Jazz para restaurantes, wine bars, eventos corporativos e apresentações intimistas.">
+<meta property="og:image" content="https://adegacitta-ux.github.io/Diana-Blum/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Diana Blum — Cantora de MPB, Pop e Jazz para Eventos e Wine Bars">
+<meta name="twitter:description" content="Diana Blum é cantora de MPB, Pop e Jazz para restaurantes, wine bars, eventos corporativos e apresentações intimistas.">
+<meta name="twitter:image" content="https://adegacitta-ux.github.io/Diana-Blum/hero.jpg">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,440;0,9..144,560;1,9..144,440&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -20,7 +35,9 @@
     --wine-deep:#551f2c;
     --cream:#f1e6d3;
     --ink-text:#241c15;
+    --whatsapp:#25D366;
     --max:680px;
+    --max-wide:1000px;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -39,8 +56,14 @@
   }
   p{margin:0;}
   a{color:inherit;}
+  ul{margin:0;padding:0;}
   .wrap{
     max-width:var(--max);
+    margin:0 auto;
+    padding:0 28px;
+  }
+  .wrap-wide{
+    max-width:var(--max-wide);
     margin:0 auto;
     padding:0 28px;
   }
@@ -95,7 +118,7 @@
     margin-top:20px;
     font-size:clamp(17px,4vw,20px);
     color:rgba(241,230,211,0.92);
-    max-width:36ch;
+    max-width:38ch;
     line-height:1.5;
     text-shadow:0 2px 18px rgba(0,0,0,0.75);
   }
@@ -120,9 +143,17 @@
   h2.section-title{
     font-size:clamp(30px,6vw,40px);
     font-weight:440;
-    margin-bottom:32px;
+    margin-bottom:16px;
   }
   .band-parchment h2.section-title{color:var(--wine-deep);}
+  .section-lead{
+    font-size:16px;
+    line-height:1.6;
+    max-width:56ch;
+    margin-bottom:40px;
+  }
+  .band-parchment .section-lead{color:#6b5d4b;}
+  section:not(.band-parchment) .section-lead{color:rgba(241,230,211,0.75);}
 
   /* ---------- SOBRE ---------- */
   .bio p{
@@ -146,7 +177,35 @@
     color:var(--wine-deep);
   }
 
-  /* ---------- GALERIA (placeholders) ---------- */
+  /* ---------- VÍDEOS ---------- */
+  .video-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px, 240px));
+    justify-content:center;
+    gap:22px;
+    margin-bottom:40px;
+  }
+  .video-frame{
+    position:relative;
+    aspect-ratio:9/16;
+    border-radius:14px;
+    overflow:hidden;
+    background:#000;
+    box-shadow:0 14px 32px rgba(0,0,0,0.5);
+  }
+  .video-frame iframe{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    border:0;
+  }
+  .videos-cta{
+    display:flex;
+    justify-content:center;
+  }
+
+  /* ---------- GALERIA ---------- */
   .gallery{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -168,24 +227,69 @@
     .gallery{grid-template-columns:repeat(2,1fr);}
   }
 
+  /* ---------- CONTRATAÇÕES ---------- */
+  .formats-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+  }
+  .format-card{
+    background:var(--ink-soft);
+    border-radius:14px;
+    padding:26px 22px;
+    border-top:3px solid var(--amber-bright);
+  }
+  .format-card h3{
+    font-size:18px;
+    color:var(--cream);
+    margin-bottom:10px;
+  }
+  .format-card p{
+    font-size:14px;
+    line-height:1.6;
+    color:#a99a82;
+  }
+  @media (max-width:760px){
+    .formats-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:520px){
+    .formats-grid{grid-template-columns:1fr;}
+  }
+
   /* ---------- REPERTÓRIO ---------- */
-  .rep-row{
-    display:flex;
-    justify-content:space-between;
-    align-items:baseline;
-    padding:20px 0;
-    border-top:1px solid #3a2f24;
+  .rep-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
     gap:16px;
   }
-  .rep-row:last-child{border-bottom:1px solid #3a2f24;}
-  .rep-row .genre{
-    font-family:'Fraunces', serif;
-    font-size:22px;
+  .rep-card{
+    background:#fff;
+    border:1px solid var(--parchment-line);
+    border-radius:14px;
+    padding:22px 20px;
   }
-  .rep-row .detail{
-    font-size:14px;
-    color:#a99a82;
-    text-align:right;
+  .rep-card h3{
+    font-size:17px;
+    color:var(--wine-deep);
+    margin-bottom:14px;
+    padding-bottom:10px;
+    border-bottom:1px solid var(--parchment-line);
+  }
+  .rep-card ul{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .rep-card li{
+    font-size:14.5px;
+    color:var(--ink-text);
+  }
+  @media (max-width:860px){
+    .rep-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:520px){
+    .rep-grid{grid-template-columns:1fr;}
   }
 
   /* ---------- CANAIS ---------- */
@@ -210,15 +314,46 @@
   .channel-link:hover{padding-left:8px; color:var(--amber-bright);}
   .channel-link .arrow{color:#a99a82; font-size:14px;}
 
-  /* ---------- CONTATO ---------- */
+  /* ---------- CONTATO COMERCIAL ---------- */
+  .contact-eyebrow{
+    font-size:13px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:rgba(241,230,211,0.7);
+    margin-bottom:14px;
+  }
   .contact-lead{
     font-family:'Fraunces', serif;
-    font-size:clamp(28px,6vw,38px);
+    font-size:clamp(26px,5.5vw,36px);
     line-height:1.25;
-    max-width:16ch;
+    max-width:20ch;
+  }
+  .manager-card{
+    margin-top:32px;
+    padding:18px 22px;
+    border:1px solid rgba(241,230,211,0.28);
+    border-radius:14px;
+    display:inline-block;
+  }
+  .manager-role{
+    font-size:12px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:rgba(241,230,211,0.65);
+    margin-bottom:6px;
+  }
+  .manager-name{
+    font-family:'Fraunces', serif;
+    font-size:22px;
+    color:var(--cream);
+    margin-bottom:4px;
+  }
+  .manager-phone{
+    font-size:15px;
+    color:#e6c8b8;
   }
   .contact-actions{
-    margin-top:40px;
+    margin-top:32px;
     display:flex;
     flex-wrap:wrap;
     gap:14px;
@@ -242,7 +377,7 @@
     color:var(--cream);
   }
   .contact-email{
-    margin-top:32px;
+    margin-top:28px;
     font-size:15px;
     color:#e6c8b8;
   }
@@ -252,6 +387,29 @@
     text-align:center;
     font-size:13px;
     color:#6b5d4b;
+  }
+
+  /* ---------- BOTÃO FLUTUANTE WHATSAPP ---------- */
+  .whatsapp-float{
+    position:fixed;
+    bottom:calc(20px + env(safe-area-inset-bottom));
+    right:20px;
+    width:58px;
+    height:58px;
+    background:var(--whatsapp);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 8px 22px rgba(0,0,0,0.4);
+    z-index:999;
+    transition:transform .2s ease;
+  }
+  .whatsapp-float:hover{transform:scale(1.08);}
+  .whatsapp-float svg{width:29px;height:29px;fill:#fff;}
+  @media (max-width:480px){
+    .whatsapp-float{width:52px;height:52px;bottom:calc(16px + env(safe-area-inset-bottom));right:16px;}
+    .whatsapp-float svg{width:26px;height:26px;}
   }
 </style>
 </head>
@@ -263,25 +421,78 @@
   <div class="wrap hero-content">
     <div class="eyebrow-meta">Cantora e compositora</div>
     <h1>Diana<br>Blum</h1>
-    <p class="tagline">Música, histórias e sentimentos — covers e composições autorais entre o Pop, o Rock e a MPB.</p>
+    <p class="tagline">Repertório entre MPB, Pop, Jazz e Rock acústico, em versões elegantes e intimistas.</p>
     <p class="location">Baseada em <span>Limeira/SP</span> · disponível para shows e eventos</p>
   </div>
 </header>
+
+<!-- ===================== ASSISTA DIANA BLUM ===================== -->
+<section id="videos">
+  <div class="wrap-wide">
+    <h2 class="section-title" style="color:var(--cream);">Assista Diana Blum</h2>
+    <p class="section-lead">Ouça a voz e sinta a atmosfera de uma apresentação intimista antes de fechar sua data.</p>
+    <div class="video-grid">
+      <div class="video-frame">
+        <iframe src="https://www.youtube.com/embed/NdUli-Sp3sk" title="Diana Blum — vídeo ao vivo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <div class="video-frame">
+        <iframe src="https://www.youtube.com/embed/uZsaJQyraRw" title="Diana Blum — vídeo ao vivo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="videos-cta">
+      <a class="btn btn-outline" href="https://www.youtube.com/@adianablum" target="_blank" rel="noopener">Ver canal completo</a>
+    </div>
+  </div>
+</section>
 
 <!-- ===================== SOBRE ===================== -->
 <section class="band-parchment">
   <div class="wrap">
     <h2 class="section-title">Sobre</h2>
     <div class="bio">
-      <p>Diana Blum é cantora e compositora de Limeira/SP, com um repertório que transita entre covers e músicas autorais, passando por Pop, Rock e MPB. Sua voz carrega histórias e sentimentos, entregando performances que conectam com o público tanto em apresentações intimistas quanto em ambientes mais vibrantes — de bares e eventos a casas de música ao vivo.</p>
-      <p>Com presença marcante no palco e versatilidade de repertório, Diana constrói um trabalho autêntico, unindo sensibilidade na interpretação a uma sonoridade própria em suas composições.</p>
+      <p>Diana Blum apresenta um repertório de MPB, Pop, Jazz e clássicos em versões intimistas, criando experiências musicais elegantes para wine bars, restaurantes, eventos corporativos e ambientes sofisticados.</p>
+      <p>Com presença marcante e sensibilidade na interpretação, Diana transforma cada apresentação em uma experiência sonora sofisticada — a trilha perfeita para ambientes que valorizam boa companhia e conversa.</p>
     </div>
     <div class="tags">
-      <span class="tag">Pop</span>
-      <span class="tag">Rock</span>
       <span class="tag">MPB</span>
-      <span class="tag">Covers</span>
-      <span class="tag">Composições autorais</span>
+      <span class="tag">Pop</span>
+      <span class="tag">Jazz</span>
+      <span class="tag">Rock Acústico</span>
+      <span class="tag">Covers & Autorais</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTRATAÇÕES ===================== -->
+<section id="contratacoes">
+  <div class="wrap-wide">
+    <h2 class="section-title" style="color:var(--cream);">Contratações</h2>
+    <p class="section-lead">Formato e repertório adaptados para cada tipo de ambiente e ocasião.</p>
+    <div class="formats-grid">
+      <div class="format-card">
+        <h3>Voz e Playback</h3>
+        <p>Repertório completo com base instrumental, ideal para eventos maiores.</p>
+      </div>
+      <div class="format-card">
+        <h3>Voz e Violão</h3>
+        <p>Formato intimista, perfeito para ambientes tranquilos e cheios de conversa.</p>
+      </div>
+      <div class="format-card">
+        <h3>Eventos Corporativos</h3>
+        <p>Trilha sonora sofisticada para confraternizações, coquetéis e recepções.</p>
+      </div>
+      <div class="format-card">
+        <h3>Restaurantes</h3>
+        <p>Ambientação elegante durante o jantar, sem sobrepor as conversas à mesa.</p>
+      </div>
+      <div class="format-card">
+        <h3>Wine Bars</h3>
+        <p>Repertório intimista que valoriza a experiência do vinho e da boa companhia.</p>
+      </div>
+      <div class="format-card">
+        <h3>Eventos Privados</h3>
+        <p>Aniversários, casamentos e celebrações com repertório personalizado.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -289,7 +500,7 @@
 <!-- ===================== GALERIA ===================== -->
 <section>
   <div class="wrap">
-    <h2 class="section-title">Em cena</h2>
+    <h2 class="section-title" style="color:var(--cream);">Em cena</h2>
     <div class="gallery">
       <div class="photo-slot"><img src="photo-1.jpg" alt="Diana Blum se apresentando ao vivo, sorrindo com o microfone"></div>
       <div class="photo-slot"><img src="photo-2.jpg" alt="Diana Blum cantando em apresentação ao vivo"></div>
@@ -299,26 +510,49 @@
 </section>
 
 <!-- ===================== REPERTÓRIO ===================== -->
-<section>
-  <div class="wrap">
+<section class="band-parchment">
+  <div class="wrap-wide">
     <h2 class="section-title">Repertório</h2>
-    <div class="rep-row">
-      <span class="genre">Pop</span>
-      <span class="detail">covers e releituras</span>
-    </div>
-    <div class="rep-row">
-      <span class="genre">Rock</span>
-      <span class="detail">clássicos e versões acústicas</span>
-    </div>
-    <div class="rep-row">
-      <span class="genre">MPB</span>
-      <span class="detail">interpretações e composições próprias</span>
+    <p class="section-lead">Um repertório afinado com o momento — do intimista ao energético.</p>
+    <div class="rep-grid">
+      <div class="rep-card">
+        <h3>MPB</h3>
+        <ul>
+          <li>Rita Lee</li>
+          <li>Marisa Monte</li>
+          <li>Ana Carolina</li>
+          <li>Djavan</li>
+        </ul>
+      </div>
+      <div class="rep-card">
+        <h3>Pop</h3>
+        <ul>
+          <li>Coldplay</li>
+          <li>Adele</li>
+          <li>Alanis Morissette</li>
+        </ul>
+      </div>
+      <div class="rep-card">
+        <h3>Jazz & Soul</h3>
+        <ul>
+          <li>Norah Jones</li>
+          <li>Amy Winehouse</li>
+        </ul>
+      </div>
+      <div class="rep-card">
+        <h3>Rock Acústico</h3>
+        <ul>
+          <li>The Cranberries</li>
+          <li>Cássia Eller</li>
+          <li>Legião Urbana</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ===================== CANAIS ===================== -->
-<section class="band-parchment" style="padding-top:0; background:var(--ink); color:var(--cream);">
+<section style="padding-top:0;">
   <div class="wrap">
     <h2 class="section-title" style="color:var(--cream);">Ouça e acompanhe</h2>
     <div class="channels">
@@ -338,12 +572,18 @@
   </div>
 </section>
 
-<!-- ===================== CONTATO ===================== -->
-<section class="band-wine">
+<!-- ===================== CONTATO COMERCIAL ===================== -->
+<section class="band-wine" id="contato">
   <div class="wrap">
-    <p class="contact-lead">Vamos agendar uma apresentação?</p>
+    <p class="contact-eyebrow">Contratações e agenda</p>
+    <p class="contact-lead">Vamos agendar uma apresentação da Diana Blum?</p>
+    <div class="manager-card">
+      <p class="manager-role">Empresário Artístico</p>
+      <p class="manager-name">Ronan Città</p>
+      <p class="manager-phone">(19) 99835-2326</p>
+    </div>
     <div class="contact-actions">
-      <a class="btn btn-primary" href="https://wa.me/5519998352326" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+      <a class="btn btn-primary" href="https://wa.me/5519998352326?text=Ol%C3%A1%20Ronan%2C%20gostaria%20de%20conversar%20sobre%20uma%20apresenta%C3%A7%C3%A3o%20da%20Diana%20Blum." target="_blank" rel="noopener">Falar com Ronan no WhatsApp</a>
       <a class="btn btn-outline" href="mailto:contato.dianablum@gmail.com">Enviar e-mail</a>
     </div>
     <p class="contact-email">contato.dianablum@gmail.com</p>
@@ -353,6 +593,13 @@
 <footer>
   Diana Blum · Limeira/SP
 </footer>
+
+<!-- ===================== BOTÃO FLUTUANTE WHATSAPP ===================== -->
+<a class="whatsapp-float" href="https://wa.me/5519998352326?text=Ol%C3%A1%20Ronan%2C%20gostaria%20de%20conversar%20sobre%20uma%20apresenta%C3%A7%C3%A3o%20da%20Diana%20Blum." target="_blank" rel="noopener" aria-label="Conversar no WhatsApp sobre uma apresentação">
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M16.004 3C9.376 3 4 8.373 4 15c0 2.428.713 4.687 1.94 6.59L4 29l7.61-1.916A11.94 11.94 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3zm0 21.7c-1.98 0-3.836-.55-5.42-1.51l-.387-.23-4.51 1.137 1.164-4.39-.253-.404A9.65 9.65 0 0 1 5.3 15c0-5.906 4.798-10.7 10.704-10.7 5.906 0 10.7 4.794 10.7 10.7 0 5.906-4.794 10.7-10.7 10.7zm5.86-8.02c-.32-.16-1.885-.93-2.177-1.036-.293-.106-.507-.16-.72.16-.213.32-.826 1.036-1.013 1.25-.187.213-.373.24-.693.08-1.874-.936-3.1-1.673-4.33-3.793-.327-.564.327-.524.936-1.744.107-.213.053-.4-.053-.56-.107-.16-.72-1.734-.986-2.4-.267-.667-.534-.507-.72-.507-.187 0-.454-.027-.72-.027-.267 0-.694.107-.934.373-.24.267-.933.916-.933 2.24 0 1.323.96 2.6 1.093 2.78.133.187 1.813 2.933 4.507 3.986 2.147.854 2.667.84 3.24.747.573-.094 1.885-.774 2.157-1.52.267-.747.267-1.386.187-1.52-.08-.134-.293-.214-.613-.374z"/>
+  </svg>
+</a>
 
 </body>
 </html>
