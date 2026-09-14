@@ -89,46 +89,94 @@
     height:100%;
     object-fit:cover;
     object-position:center 20%;
+    z-index:0;
   }
   .hero::before{
     content:"";
     position:absolute;
     inset:0;
+    z-index:1;
     background:
-      linear-gradient(90deg, rgba(9,6,4,0.96) 0%, rgba(9,6,4,0.88) 45%, rgba(9,6,4,0.5) 68%, rgba(9,6,4,0.12) 88%),
-      linear-gradient(180deg, rgba(9,6,4,0.2) 0%, rgba(9,6,4,0.82) 55%, var(--ink) 100%);
+      linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.78) 100%),
+      linear-gradient(90deg, rgba(9,6,4,0.85) 0%, rgba(9,6,4,0.5) 45%, rgba(9,6,4,0.1) 75%);
+  }
+  @media (max-width:640px){
+    .hero::before{
+      background:linear-gradient(to bottom,
+        rgba(0,0,0,0.25) 0%,
+        rgba(0,0,0,0.55) 28%,
+        rgba(0,0,0,0.80) 48%,
+        rgba(0,0,0,0.92) 68%,
+        rgba(0,0,0,0.95) 100%);
+    }
   }
   .hero-content{
     position:relative;
-    z-index:1;
+    z-index:2;
   }
-  .eyebrow-meta{
+  .hero-eyebrow{
     font-size:14px;
-    color:rgba(241,230,211,0.85);
+    color:rgba(241,230,211,0.9);
     margin-bottom:18px;
-    text-shadow:0 2px 18px rgba(0,0,0,0.75);
+    text-shadow:0 1px 4px rgba(0,0,0,0.8);
+    opacity:0;
+    animation:heroFadeUp .7s ease forwards;
+    animation-delay:.05s;
   }
   .hero h1{
     font-size:clamp(52px, 13vw, 92px);
     line-height:0.94;
     color:#fbf4e6;
-    text-shadow:0 4px 28px rgba(0,0,0,0.75);
+    text-shadow:0 2px 8px rgba(0,0,0,0.8);
+    opacity:0;
+    animation:heroFadeUp .7s ease forwards;
+    animation-delay:.15s;
   }
-  .hero .tagline{
+  .hero-desc{
     margin-top:20px;
-    font-size:clamp(17px,4vw,20px);
-    color:rgba(241,230,211,0.92);
+    font-size:clamp(16px,4vw,19px);
+    color:rgba(241,230,211,0.95);
     max-width:38ch;
-    line-height:1.5;
-    text-shadow:0 2px 18px rgba(0,0,0,0.75);
+    line-height:1.55;
+    text-shadow:0 1px 4px rgba(0,0,0,0.8);
+    opacity:0;
+    animation:heroFadeUp .7s ease forwards;
+    animation-delay:.25s;
   }
-  .hero .location{
+  .hero-cta-group{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-top:32px;
+    opacity:0;
+    animation:heroFadeUp .7s ease forwards;
+    animation-delay:.35s;
+  }
+  .hero-cta-group .btn{
+    text-shadow:none;
+  }
+  .hero-location{
     margin-top:28px;
     font-size:14px;
-    color:rgba(241,230,211,0.62);
-    text-shadow:0 2px 14px rgba(0,0,0,0.75);
+    color:rgba(241,230,211,0.7);
+    text-shadow:0 1px 4px rgba(0,0,0,0.8);
+    opacity:0;
+    animation:heroFadeUp .7s ease forwards;
+    animation-delay:.45s;
   }
-  .hero .location span{color:#f3b968;}
+  .hero-location span{color:#f3b968;}
+  @keyframes heroFadeUp{
+    from{opacity:0; transform:translateY(14px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+  @media (max-width:640px){
+    .hero-eyebrow, .hero-desc{max-width:320px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .hero-eyebrow, .hero h1, .hero-desc, .hero-cta-group, .hero-location{
+      opacity:1; animation:none; transform:none;
+    }
+  }
 
   /* ---------- SECTION SCAFFOLDING ---------- */
   section{padding:88px 0;}
@@ -535,10 +583,14 @@
 <header class="hero">
   <img class="hero-photo" src="hero.jpg" alt="Diana Blum cantando ao microfone durante uma apresentação">
   <div class="wrap hero-content">
-    <div class="eyebrow-meta">Cantora e compositora</div>
+    <p class="hero-eyebrow">Música ao vivo para eventos e experiências intimistas</p>
     <h1>Diana<br>Blum</h1>
-    <p class="tagline">Repertório entre MPB, Pop, Jazz e Rock acústico, em versões elegantes e intimistas.</p>
-    <p class="location">Baseada em <span>Limeira/SP</span> · disponível para shows e eventos</p>
+    <p class="hero-desc">MPB, Pop, Jazz e Rock Acústico em versões elegantes para restaurantes, wine bars, eventos corporativos e apresentações especiais.</p>
+    <div class="hero-cta-group">
+      <a class="btn btn-primary" href="https://wa.me/5519998352326?text=Ol%C3%A1%20Ronan%2C%20gostaria%20de%20conversar%20sobre%20uma%20apresenta%C3%A7%C3%A3o%20da%20Diana%20Blum." target="_blank" rel="noopener">Solicitar apresentação</a>
+      <a class="btn btn-outline" href="#videos">Assistir vídeos</a>
+    </div>
+    <p class="hero-location">Baseada em <span>Limeira/SP</span> • Disponível para São Paulo e região</p>
   </div>
 </header>
 
