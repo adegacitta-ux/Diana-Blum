@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diana Blum — Cantora e Compositora</title>
+<meta name="description" content="Diana Blum — cantora e compositora de Limeira/SP. Covers e músicas autorais entre Pop, Rock e MPB. Contato para shows.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,440;0,9..144,560;1,9..144,440&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#17120e;
+    --ink-soft:#241c15;
+    --parchment:#f1e6d3;
+    --parchment-line:#dccbaa;
+    --amber:#c98d3f;
+    --amber-bright:#e3ac60;
+    --wine:#6e2a3a;
+    --wine-deep:#551f2c;
+    --cream:#f1e6d3;
+    --ink-text:#241c15;
+    --max:680px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Work Sans', sans-serif;
+    background:var(--ink);
+    color:var(--cream);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:440;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  p{margin:0;}
+  a{color:inherit;}
+  .wrap{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    padding:48px 0 64px;
+    background:
+      radial-gradient(120% 90% at 15% 0%, #2a1f16 0%, transparent 55%),
+      radial-gradient(140% 100% at 85% 100%, #331e22 0%, transparent 60%),
+      var(--ink);
+    overflow:hidden;
+  }
+  .hero::before{
+    /* placeholder photo slot — substitua por <img> real quando tiver a foto */
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(180deg, rgba(23,18,14,0) 0%, rgba(23,18,14,0.55) 55%, var(--ink) 100%),
+      repeating-linear-gradient(135deg, #2c221a 0 2px, #241c15 2px 4px);
+    opacity:0.9;
+  }
+  .hero-photo-note{
+    position:absolute;
+    top:24px;
+    right:28px;
+    font-size:11px;
+    color:#a99a82;
+    border:1px solid #4a3d30;
+    padding:5px 10px;
+    border-radius:100px;
+    background:rgba(23,18,14,0.5);
+    z-index:2;
+  }
+  .hero-content{
+    position:relative;
+    z-index:1;
+  }
+  .eyebrow-meta{
+    font-size:14px;
+    color:#c9b18a;
+    margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:clamp(52px, 13vw, 92px);
+    line-height:0.94;
+    color:var(--cream);
+  }
+  .hero .tagline{
+    margin-top:20px;
+    font-size:clamp(17px,4vw,20px);
+    color:#d8c7a9;
+    max-width:36ch;
+    line-height:1.5;
+  }
+  .hero .location{
+    margin-top:28px;
+    font-size:14px;
+    color:#9c8b72;
+  }
+  .hero .location span{color:var(--amber-bright);}
+
+  /* ---------- SECTION SCAFFOLDING ---------- */
+  section{padding:88px 0;}
+  .band-parchment{
+    background:var(--parchment);
+    color:var(--ink-text);
+  }
+  .band-wine{
+    background:linear-gradient(160deg, var(--wine) 0%, var(--wine-deep) 100%);
+    color:var(--cream);
+  }
+  h2.section-title{
+    font-size:clamp(30px,6vw,40px);
+    font-weight:440;
+    margin-bottom:32px;
+  }
+  .band-parchment h2.section-title{color:var(--wine-deep);}
+
+  /* ---------- SOBRE ---------- */
+  .bio p{
+    font-size:18px;
+    line-height:1.75;
+    max-width:58ch;
+  }
+  .bio p + p{margin-top:20px;}
+
+  .tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:36px;
+  }
+  .tag{
+    font-size:13px;
+    padding:8px 16px;
+    border:1px solid #b79f75;
+    border-radius:100px;
+    color:var(--wine-deep);
+  }
+
+  /* ---------- GALERIA (placeholders) ---------- */
+  .gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+    margin-top:8px;
+  }
+  .photo-slot{
+    aspect-ratio:4/5;
+    border-radius:2px;
+    position:relative;
+    display:flex;
+    align-items:flex-end;
+    background:
+      linear-gradient(180deg, rgba(23,18,14,0) 40%, rgba(23,18,14,0.75) 100%),
+      repeating-linear-gradient(135deg, #362720 0 2px, #2c211a 2px 4px);
+    overflow:hidden;
+  }
+  .photo-slot span{
+    font-size:11px;
+    color:#c9b18a;
+    padding:10px;
+  }
+  @media (max-width:560px){
+    .gallery{grid-template-columns:repeat(2,1fr);}
+  }
+
+  /* ---------- REPERTÓRIO ---------- */
+  .rep-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    padding:20px 0;
+    border-top:1px solid #3a2f24;
+    gap:16px;
+  }
+  .rep-row:last-child{border-bottom:1px solid #3a2f24;}
+  .rep-row .genre{
+    font-family:'Fraunces', serif;
+    font-size:22px;
+  }
+  .rep-row .detail{
+    font-size:14px;
+    color:#a99a82;
+    text-align:right;
+  }
+
+  /* ---------- CANAIS ---------- */
+  .channels{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    margin-top:36px;
+  }
+  .channel-link{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 0;
+    border-top:1px solid #3a2f24;
+    text-decoration:none;
+    color:var(--cream);
+    font-size:17px;
+    transition:padding-left .2s ease, color .2s ease;
+  }
+  .channels .channel-link:last-child{border-bottom:1px solid #3a2f24;}
+  .channel-link:hover{padding-left:8px; color:var(--amber-bright);}
+  .channel-link .arrow{color:#a99a82; font-size:14px;}
+
+  /* ---------- CONTATO ---------- */
+  .contact-lead{
+    font-family:'Fraunces', serif;
+    font-size:clamp(28px,6vw,38px);
+    line-height:1.25;
+    max-width:16ch;
+  }
+  .contact-actions{
+    margin-top:40px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:15px 26px;
+    border-radius:100px;
+    font-size:15px;
+    font-weight:500;
+    text-decoration:none;
+  }
+  .btn-primary{
+    background:var(--cream);
+    color:var(--wine-deep);
+  }
+  .btn-outline{
+    border:1px solid rgba(241,230,211,0.45);
+    color:var(--cream);
+  }
+  .contact-email{
+    margin-top:32px;
+    font-size:15px;
+    color:#e6c8b8;
+  }
+
+  footer{
+    padding:32px 0 40px;
+    text-align:center;
+    font-size:13px;
+    color:#6b5d4b;
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="hero-photo-note">foto: substituir depois</div>
+  <div class="wrap hero-content">
+    <div class="eyebrow-meta">Cantora e compositora</div>
+    <h1>Diana<br>Blum</h1>
+    <p class="tagline">Música, histórias e sentimentos — covers e composições autorais entre o Pop, o Rock e a MPB.</p>
+    <p class="location">Baseada em <span>Limeira/SP</span> · disponível para shows e eventos</p>
+  </div>
+</header>
+
+<!-- ===================== SOBRE ===================== -->
+<section class="band-parchment">
+  <div class="wrap">
+    <h2 class="section-title">Sobre</h2>
+    <div class="bio">
+      <p>Diana Blum é cantora e compositora de Limeira/SP, com um repertório que transita entre covers e músicas autorais, passando por Pop, Rock e MPB. Sua voz carrega histórias e sentimentos, entregando performances que conectam com o público tanto em apresentações intimistas quanto em ambientes mais vibrantes — de bares e eventos a casas de música ao vivo.</p>
+      <p>Com presença marcante no palco e versatilidade de repertório, Diana constrói um trabalho autêntico, unindo sensibilidade na interpretação a uma sonoridade própria em suas composições.</p>
+    </div>
+    <div class="tags">
+      <span class="tag">Pop</span>
+      <span class="tag">Rock</span>
+      <span class="tag">MPB</span>
+      <span class="tag">Covers</span>
+      <span class="tag">Composições autorais</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GALERIA ===================== -->
+<section>
+  <div class="wrap">
+    <h2 class="section-title">Em cena</h2>
+    <!-- Cada .photo-slot é um placeholder. Para colocar uma foto real, troque a div
+         por: <div class="photo-slot" style="background-image:url('foto.jpg'); background-size:cover; background-position:center;"><span>legenda opcional</span></div> -->
+    <div class="gallery">
+      <div class="photo-slot"><span>foto em breve</span></div>
+      <div class="photo-slot"><span>foto em breve</span></div>
+      <div class="photo-slot"><span>foto em breve</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== REPERTÓRIO ===================== -->
+<section>
+  <div class="wrap">
+    <h2 class="section-title">Repertório</h2>
+    <div class="rep-row">
+      <span class="genre">Pop</span>
+      <span class="detail">covers e releituras</span>
+    </div>
+    <div class="rep-row">
+      <span class="genre">Rock</span>
+      <span class="detail">clássicos e versões acústicas</span>
+    </div>
+    <div class="rep-row">
+      <span class="genre">MPB</span>
+      <span class="detail">interpretações e composições próprias</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CANAIS ===================== -->
+<section class="band-parchment" style="padding-top:0; background:var(--ink); color:var(--cream);">
+  <div class="wrap">
+    <h2 class="section-title" style="color:var(--cream);">Ouça e acompanhe</h2>
+    <div class="channels">
+      <a class="channel-link" href="https://www.instagram.com/a.diana.blum" target="_blank" rel="noopener">
+        <span>Instagram</span><span class="arrow">@a.diana.blum</span>
+      </a>
+      <a class="channel-link" href="https://www.youtube.com/@adianablum" target="_blank" rel="noopener">
+        <span>YouTube</span><span class="arrow">@adianablum</span>
+      </a>
+      <a class="channel-link" href="https://www.tiktok.com/@a.diana.blum" target="_blank" rel="noopener">
+        <span>TikTok</span><span class="arrow">@a.diana.blum</span>
+      </a>
+      <a class="channel-link" href="https://www.facebook.com/dianaribeiroblum" target="_blank" rel="noopener">
+        <span>Facebook</span><span class="arrow">Diana Ribeiro Blum</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTATO ===================== -->
+<section class="band-wine">
+  <div class="wrap">
+    <p class="contact-lead">Vamos agendar uma apresentação?</p>
+    <div class="contact-actions">
+      <a class="btn btn-primary" href="https://wa.me/5519998352326" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+      <a class="btn btn-outline" href="mailto:contato.dianablum@gmail.com">Enviar e-mail</a>
+    </div>
+    <p class="contact-email">contato.dianablum@gmail.com</p>
+  </div>
+</section>
+
+<footer>
+  Diana Blum · Limeira/SP
+</footer>
+
+</body>
+</html>
