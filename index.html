@@ -59,27 +59,20 @@
       var(--ink);
     overflow:hidden;
   }
+  .hero-photo{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 20%;
+  }
   .hero::before{
-    /* placeholder photo slot — substitua por <img> real quando tiver a foto */
     content:"";
     position:absolute;
     inset:0;
     background:
-      linear-gradient(180deg, rgba(23,18,14,0) 0%, rgba(23,18,14,0.55) 55%, var(--ink) 100%),
-      repeating-linear-gradient(135deg, #2c221a 0 2px, #241c15 2px 4px);
-    opacity:0.9;
-  }
-  .hero-photo-note{
-    position:absolute;
-    top:24px;
-    right:28px;
-    font-size:11px;
-    color:#a99a82;
-    border:1px solid #4a3d30;
-    padding:5px 10px;
-    border-radius:100px;
-    background:rgba(23,18,14,0.5);
-    z-index:2;
+      linear-gradient(180deg, rgba(23,18,14,0.05) 0%, rgba(23,18,14,0.6) 60%, var(--ink) 100%);
   }
   .hero-content{
     position:relative;
@@ -158,18 +151,13 @@
   .photo-slot{
     aspect-ratio:4/5;
     border-radius:2px;
-    position:relative;
-    display:flex;
-    align-items:flex-end;
-    background:
-      linear-gradient(180deg, rgba(23,18,14,0) 40%, rgba(23,18,14,0.75) 100%),
-      repeating-linear-gradient(135deg, #362720 0 2px, #2c211a 2px 4px);
     overflow:hidden;
   }
-  .photo-slot span{
-    font-size:11px;
-    color:#c9b18a;
-    padding:10px;
+  .photo-slot img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
   }
   @media (max-width:560px){
     .gallery{grid-template-columns:repeat(2,1fr);}
@@ -266,7 +254,7 @@
 
 <!-- ===================== HERO ===================== -->
 <header class="hero">
-  <div class="hero-photo-note">foto: substituir depois</div>
+  <img class="hero-photo" src="hero.jpg" alt="Diana Blum cantando ao microfone durante uma apresentação">
   <div class="wrap hero-content">
     <div class="eyebrow-meta">Cantora e compositora</div>
     <h1>Diana<br>Blum</h1>
@@ -297,12 +285,10 @@
 <section>
   <div class="wrap">
     <h2 class="section-title">Em cena</h2>
-    <!-- Cada .photo-slot é um placeholder. Para colocar uma foto real, troque a div
-         por: <div class="photo-slot" style="background-image:url('foto.jpg'); background-size:cover; background-position:center;"><span>legenda opcional</span></div> -->
     <div class="gallery">
-      <div class="photo-slot"><span>foto em breve</span></div>
-      <div class="photo-slot"><span>foto em breve</span></div>
-      <div class="photo-slot"><span>foto em breve</span></div>
+      <div class="photo-slot"><img src="photo-1.jpg" alt="Diana Blum se apresentando ao vivo, sorrindo com o microfone"></div>
+      <div class="photo-slot"><img src="photo-2.jpg" alt="Diana Blum cantando em apresentação ao vivo"></div>
+      <div class="photo-slot"><img src="photo-3.jpg" alt="Diana Blum no palco, sorrindo para o público"></div>
     </div>
   </div>
 </section>
